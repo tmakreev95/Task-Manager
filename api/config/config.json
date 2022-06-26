@@ -1,0 +1,11 @@
+{
+    "apiServePort": 3000,
+    "clientUrl": "http://localhost:4100",
+    "mongoDatabaseUri": "mongodb://localhost:27017/",
+    "mongoDatabase": "task-manager",
+    "corsAllowedMethods": "GET, POST, HEAD, OPTIONS, PUT, PATCH, DELETE",
+    "jwtSecret": "5168615845f1213sfhr3803300754camorth5339751113",
+    "jwtExpiration": "15m",
+    "refreshTokenDaysUntilExpire": "10",
+    "costFactor": 10
+}
