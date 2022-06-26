@@ -1,0 +1,102 @@
+<div class="centered-content">
+  <div class="task-manager-container">
+    <div class="sidebar has-background-white">
+      <h1 class="title has-text-primary">
+        Lists
+      </h1>
+      <div class="list-menu">
+        <!-- Lists -->
+        <div *ngFor="let list of lists">
+          <div class="columns">
+            <div class="column is-8">
+              <a #listItem class="list-menu-item"  [routerLink]="['/lists', list._id]" routerLinkActive="is-active">
+                {{ list.title }}
+              </a>
+            </div>
+            <div class="column is-4">
+              <div class="buttons is-right list-actions" *ngIf="list._id === this.route.params.value.listId">
+                <button class="button is-info" (click)="onEditListClickEvent(list.title, list._id)">
+                  <span class="icon is-small">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                  </span>
+                </button>
+                <button class="button is-danger" (click)="onDeleteListClick()">
+                  <span class="icon is-small">
+                    <i class="fa fa-trash-alt" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="lists">
+          <div *ngIf="lists.length === 0">
+            <h3 class="empty-list-title">There are no lists. Click 'Add List' to begin.</h3>
+          </div>
+        </div>
+        <!-- Lists -->
+      </div>
+      <div class="buttons is-right">
+        <div class="field">
+          <p class="control">
+            <button class="button is-primary has-text-white" id="add-list-button" routerLink="/new-list">
+              Add List
+              <span class="button-icon">
+                <i class="fa fa-list" aria-hidden="true"></i>
+              </span>
+          </button>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="tasks-list-container has-background-light">
+      <div class="top-bar" id="top-bar">
+        <h1 class="title has-text-primary">
+          Tasks
+        </h1>
+        <div id="log-out-wrapper">
+          <button class="button" (click)="onSignOutClickEvent()">
+            <span class="icon is-small">
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div *ngIf="tasks">
+        <h3 class="is-4 empty-list-title" *ngIf="tasks.length === 0">There are no tasks in the selected list. Click 'Add Task' to begin.</h3>
+        <!-- Tasks -->
+        <div class="task" *ngFor="let task of tasks" (click)="completeTask(task)" [ngClass]='{ completed: task.completed }'>
+          <div class="columns">
+            <div class="column is-10">
+              <p>{{ task.title }}</p>
+            </div>
+            <div class="column is-2">
+              <div class="buttons is-right task-actions">
+                <button class="button is-info" (click)="onEditTaskClickEvent(selectedListId,task._id, task.title)">
+                  <span class="icon is-small">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                  </span>
+                </button>
+                <button class="button is-danger" (click)="deleteTask(task)">
+                  <span class="icon is-small">
+                    <i class="fa fa-trash-alt" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tasks -->
+      </div>
+      <div *ngIf="!tasks">
+        <h3 class="is-4 empty-list-title">Select a list to begin adding tasks.</h3>
+      </div>
+      <button *ngIf="showAddTaskButton" id="add-new-task-button" class="button is-primary has-text-white" routerLink="./new-task">
+        Add Task
+        <span class="button-icon">
+          <i class="fa fa-tasks" aria-hidden="true"></i>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>

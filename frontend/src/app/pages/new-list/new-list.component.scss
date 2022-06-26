@@ -1,0 +1,23 @@
+@import '../../../main-styles.scss';
+
+.form-wrapper{
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+
+  #create-list-title-input{
+    border-color: $turquoise;
+  }
+
+  #create-list-title-input-wrapper{
+    width: 100%;
+  }
+
+  #create-list-button{
+    background-color: $turquoise;
+  }
+}
+
+#new-list-component-buttons{
+  margin-top: 10px !important;
+}

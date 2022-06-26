@@ -1,0 +1,18 @@
+@import '../../../main-styles.scss';
+
+.sign-up-box{
+  padding: 30px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px -3px rgba(146,146,146,0.86);
+}
+
+.sign-up-input{
+  &:hover{
+    transition: border $signUpInputTransition;
+  }
+}
+
+.fas {
+  transition: $signUpInputIconsTransition;
+}

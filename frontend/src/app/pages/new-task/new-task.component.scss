@@ -1,0 +1,23 @@
+@import '../../../main-styles.scss';
+
+.form-wrapper{
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+
+  #create-task-title-input{
+    border-color: $turquoise;
+  }
+
+  #create-task-button{
+    background-color: $turquoise;
+  }
+
+  #create-task-title-input-wrapper{
+    width: 100%;
+  }
+}
+
+#new-task-component-buttons{
+  margin-top: 10px !important;
+}
